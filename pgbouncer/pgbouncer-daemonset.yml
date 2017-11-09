@@ -25,6 +25,16 @@ spec:
                 name: pgbouncer-configs
             - secretRef:
                 name: pgbouncer-secrets
+          readinessProbe:
+            tcpSocket:
+              port: 5432
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              port: 5432
+            initialDelaySeconds: 15
+            periodSeconds: 20
         - image: gcr.io/cloudsql-docker/gce-proxy:1.11    # Gcloud SQL Proxy
           name: cloudsql-proxy
           command:
