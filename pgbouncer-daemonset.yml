@@ -22,6 +22,13 @@ data:
   TCP_KEEPIDLE: "300" # see: https://git.io/vi0Aj
   TCP_KEEPINTVL: "300"
 ---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cloudsql-configs
+data:
+  DB_INSTANCES: "TODO"
+---
 apiVersion: apps/v1beta2 # for versions before 1.8.0 use apps/v1beta1
 kind: DaemonSet
 metadata:
@@ -52,11 +59,14 @@ spec:
           command:
             - /cloud_sql_proxy
             - --dir=/cloudsql
-            - -instances=project-id:europe-west1:instance-name=tcp:5432
+            - -instances={{ env "DB_INSTANCES" }}
             - -credential_file=/secrets/cloudsql/credentials.json
           ports:
             - containerPort: 6432
               protocol: TCP
+          envFrom:
+            - configMapRef:
+                name: cloudsql-configs
           volumeMounts:
             - name: cloudsql-instance-credentials
               mountPath: /secrets/cloudsql
