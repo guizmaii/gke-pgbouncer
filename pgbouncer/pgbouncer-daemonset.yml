@@ -18,6 +18,7 @@ spec:
           name: pgbouncer
           ports:
             - containerPort: 5432
+              hostPort: 5432
               protocol: TCP
           envFrom:
             - configMapRef:
