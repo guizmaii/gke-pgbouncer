@@ -59,7 +59,7 @@ spec:
           command:
             - /cloud_sql_proxy
             - --dir=/cloudsql
-            - -instances={{ env "DB_INSTANCES" }}
+            - -instances=$(DB_INSTANCES)
             - -credential_file=/secrets/cloudsql/credentials.json
           ports:
             - containerPort: 6432
