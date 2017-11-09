@@ -25,6 +25,11 @@ spec:
                 name: pgbouncer-configs
             - secretRef:
                 name: pgbouncer-secrets
+          env:
+            - name: LISTEN_ADDR
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.hostIP
           readinessProbe:
             tcpSocket:
               port: 5432
