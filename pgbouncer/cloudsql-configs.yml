@@ -1,0 +1,7 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cloudsql-configs
+data:
+  DB_INSTANCES: "TODO"

@@ -1,0 +1,14 @@
+---
+# Some value come from this example: https://gist.github.com/guizmaii/795374b8058240780aa995ef0f5b2ba7
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pgbouncer-configs
+data:
+  DB_HOST: "127.0.0.1"
+  DB_PORT: "6432"
+  LISTEN_PORT: "5432"
+  TCP_KEEPALIVE: "1"
+  TCP_KEEPCNT: "5"
+  TCP_KEEPIDLE: "300" # see: https://git.io/vi0Aj
+  TCP_KEEPINTVL: "300"
