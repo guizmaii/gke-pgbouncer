@@ -14,7 +14,7 @@ spec:
         name: pgbouncer-daemonset
     spec:
       containers:
-        - image: guizmaii/pgbouncer:v1.7.2                # PgBouncer
+        - image: guizmaii/pgbouncer:v1.8.1                # PgBouncer
           name: pgbouncer
           ports:
             - containerPort: 5432
