@@ -6,6 +6,8 @@ More infos about this file : http://keepachangelog.com/
 
 ## [Unreleased] - no_due_date
 
+## [v1.8.1-0] - 2018-01-23
+
 - **Update PgBouncer from v1.7.2 to v1.8.1: https://github.com/guizmaii/pgbouncer/tree/v1.8.1**
 - **Init Changelog**
 
